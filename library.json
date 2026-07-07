@@ -32,7 +32,6 @@
                 "Program.cs",
                 "SerialFrameDemo.csproj",
                 "SerialFrameDemo.slnx",
-                "src/main.c",
                 "include/interface.h",
                 "Properties/launchSettings.json",
                 "src/main.cpp"
