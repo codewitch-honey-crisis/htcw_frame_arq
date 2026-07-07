@@ -1,0 +1,5 @@
+menu "htcw_frame_arq configuration"
+  config HTCW_FRAME_ARQ
+    bool "Enable HTCW_FRAME_ARQ"
+    default n
+endmenu
