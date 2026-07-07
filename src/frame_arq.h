@@ -148,6 +148,10 @@ bool frame_arq_awaiting_ack(frame_arq_handle_t handle);
 /// @return true if frame_arq_resend() should be called, false otherwise or if handle is NULL.
 bool frame_arq_resend_needed(frame_arq_handle_t handle);
 
+/// @brief Resets ARQ state (sequence numbers, awaiting/resend flags, buffers) for a fresh session.
+/// @remarks Use when a link is re-established without both ends restarting (e.g. a USB CDC
+///          reconnect that does not reboot the MCU). Both ends should reset so sequences realign.
+int frame_arq_reset(frame_arq_handle_t handle);
 #ifdef __cplusplus
 }
 #endif

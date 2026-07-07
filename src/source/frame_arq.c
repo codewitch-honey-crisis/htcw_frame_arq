@@ -408,3 +408,19 @@ void frame_arq_destroy(frame_arq_handle_t handle) {
     }
     free(frame);
 }
+
+int frame_arq_reset(frame_arq_handle_t handle) {
+    frame_arq_t* frame;
+    if (handle == NULL) {
+        return FRAME_ARQ_ERROR_ARG;
+    }
+    frame = (frame_arq_t*)handle;
+    frame->byte_count = 0;
+    frame->retain_length = 0;
+    frame->tx_seq = FA_SEQ_MASK;      /* first put -> seq 0 */
+    frame->expected_rx_seq = 0;
+    frame->awaiting_ack = false;
+    frame->resend_needed = false;
+    return FRAME_ARQ_SUCCESS;
+}
+
